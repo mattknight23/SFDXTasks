@@ -1,0 +1,140 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SFDX: Retrieve Package",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:mdapi:retrieve",
+                "-r",
+                "retrieval",
+                "-p",
+                "${input:packageName}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Unzip Retrieval",
+            "type": "shell",
+            "command": "unzip",
+            "args": [
+                "retrieval/unpackaged.zip",
+                "-d",
+                "retrieval"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Convert Source",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:source:convert",
+                "--rootdir",
+                "force-app",
+                "--outputdir",
+                "deployment"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Zip Converted File",
+            "type": "shell",
+            "command": "zip",
+            "args": [
+                "force:source:convert",
+                "-r",
+                "-X",
+                "deployment.zip",
+                "deployment"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Deploy to Org",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:mdapi:deploy",
+                "--zipfile",
+                "force:source:convert.zip",
+                "--targetusername",
+                "${input:username}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Deploy Converted File with specified tests",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:mdapi:deploy",
+                "--zipfile",
+                "force:source:convert.zip",
+                "--targetusername",
+                "${input:username}",
+                "-l",
+                "RunSpecifiedTests",
+                "${input:specifiedTests}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "sourcePath",
+            "type": "promptString",
+            "description": "Folder path to source metadata",
+            "default": "force-app"
+        },
+        {
+            "id": "packageName",
+            "type": "promptString",
+            "description": "The package name to retrieve form salesforce",
+            "default": ""
+        },
+        {
+            "id": "username",
+            "type": "promptString",
+            "description": "The username of the org to deploy to",
+            "default": ""
+        },
+        {
+            "id": "specifiedTests",
+            "type": "promptString",
+            "description": "name all the tests to run in the folloiwing format [ , ]",
+            "default": "[testclass1,testclass2]"
+        }
+    ]
+}
