@@ -109,14 +109,44 @@
                 "panel": "shared"
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "SFDX: Install Package",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:install",
+                "--package",
+                "${input:packageVersionId}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: List Installed Packages",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:installed:list"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
     ],
     "inputs": [
         {
-            "id": "sourcePath",
+            "id": "packageVersionId",
             "type": "promptString",
-            "description": "Folder path to source metadata",
-            "default": "force-app"
+            "description": "Package Version Id to Install}",
+            "default": ""
         },
         {
             "id": "packageName",
