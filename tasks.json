@@ -20,6 +20,26 @@
             "problemMatcher": []
         },
         {
+            "label": "SFDX: Retrieve Package with Username",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:mdapi:retrieve",
+                "-r",
+                "retrieval",
+                "-p",
+                "${input:packageName}",
+                "-u",
+                "${input:username}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "SFDX: Unzip Retrieval",
             "type": "shell",
             "command": "unzip",
@@ -36,7 +56,7 @@
             "problemMatcher": []
         },
         {
-            "label": "SFDX: Convert Source",
+            "label": "SFDX: Convert Source to Metadata for Deployment",
             "type": "shell",
             "command": "sfdx",
             "args": [
@@ -45,6 +65,24 @@
                 "force-app",
                 "--outputdir",
                 "deployment"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Convert Metadata to Source",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:mdapi:convert",
+                "--rootdir",
+                "${input:rootdir}",
+                "--outputdir",
+                "${input:outputDIr}"
             ],
             "group": "build",
             "presentation": {
@@ -158,6 +196,18 @@
             "id": "username",
             "type": "promptString",
             "description": "The username of the org to deploy to",
+            "default": ""
+        },
+        {
+            "id": "rootdir",
+            "type": "promptString",
+            "description": "The root directoty of the MDAPI source",
+            "default": ""
+        },
+        {
+            "id": "outputDIr",
+            "type": "promptString",
+            "description": "The name of the output directory",
             "default": ""
         },
         {
