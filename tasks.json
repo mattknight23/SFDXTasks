@@ -128,7 +128,7 @@
             "problemMatcher": []
         },
         {
-            "label": "SFDX: Deploy Converted File with specified tests",
+            "label": "SFDX: Deploy to org with specified tests",
             "type": "shell",
             "command": "sfdx",
             "args": [
