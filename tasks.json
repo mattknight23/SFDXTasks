@@ -165,6 +165,24 @@
             "problemMatcher": []
         },
         {
+            "label": "SFDX: Install Package Specify Username",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:install",
+                "--package",
+                "${input:packageVersionId}",
+                "-u",
+                "${input:username}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "SFDX: List Installed Packages",
             "type": "shell",
             "command": "sfdx",
@@ -177,19 +195,119 @@
                 "panel": "shared"
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "SFDX: List Installed Packages Specify Username",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:installed:list",
+                "-u",
+                "${input:username}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Create Package",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:create",
+                "-n",
+                "${input:createPackageName}",
+                "-d",
+                "${input:packageDescription}",
+                "-t",
+                "${input:packageType}",
+                "-r",
+                "force-app"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Create Package Version",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:version:create",
+                "-p",
+                "${input:packageName}",
+                "-d",
+                "force-app",
+                "-f",
+                "config/project-scratch-def.json",
+                "-w",
+                "${input:wait}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: Promote Package",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:version:promote",
+                "-p",
+                "${input:packageName}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
     ],
     "inputs": [
         {
+            "id": "createPackageName",
+            "type": "promptString",
+            "description": "Name of the package to be created",
+            "default": "My Package"
+        },
+        {
+            "id": "wait",
+            "type": "promptString",
+            "description": "Specify the wait time",
+            "default": "10"
+        },
+        {
+            "id": "packageDescription",
+            "type": "promptString",
+            "description": "Description of the package to be created",
+            "default": ""
+        },
+        {
+            "id": "packageType",
+            "type": "promptString",
+            "description": "Unlocked or Managed",
+            "default": "Unlocked"
+        },
+        {
             "id": "packageVersionId",
             "type": "promptString",
-            "description": "Package Version Id to Install}",
+            "description": "Package Version Id to Install",
             "default": ""
         },
         {
             "id": "packageName",
             "type": "promptString",
-            "description": "The package name to retrieve form salesforce",
+            "description": "The package name to retrieve from salesforce",
             "default": ""
         },
         {
