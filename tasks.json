@@ -213,7 +213,7 @@
             "problemMatcher": []
         },
         {
-            "label": "SFDX: Create Package",
+            "label": "SFDX: ",
             "type": "shell",
             "command": "sfdx",
             "args": [
@@ -241,7 +241,7 @@
             "args": [
                 "force:package:version:create",
                 "-p",
-                "${input:packageName}",
+                "${input:packageIdentifier}",
                 "-d",
                 "force-app",
                 "-f",
@@ -263,7 +263,7 @@
             "args": [
                 "force:package:version:promote",
                 "-p",
-                "${input:packageName}"
+                "${input:packageIdentifier}"
             ],
             "group": "build",
             "presentation": {
@@ -308,6 +308,12 @@
             "id": "packageName",
             "type": "promptString",
             "description": "The package name to retrieve from salesforce",
+            "default": ""
+        },
+        {
+            "id": "packageIdentifier",
+            "type": "promptString",
+            "description": "The package name or id you would like to work with",
             "default": ""
         },
         {
