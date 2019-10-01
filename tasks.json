@@ -242,8 +242,6 @@
                 "force:package:version:create",
                 "-p",
                 "${input:packageIdentifier}",
-                "-d",
-                "force-app",
                 "-f",
                 "config/project-scratch-def.json",
                 "-w",
