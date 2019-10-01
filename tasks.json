@@ -213,7 +213,7 @@
             "problemMatcher": []
         },
         {
-            "label": "SFDX: ",
+            "label": "SFDX: Create Package",
             "type": "shell",
             "command": "sfdx",
             "args": [
