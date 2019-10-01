@@ -247,7 +247,8 @@
                 "-f",
                 "config/project-scratch-def.json",
                 "-w",
-                "${input:wait}"
+                "${input:wait}",
+                "-x"
             ],
             "group": "build",
             "presentation": {
