@@ -292,7 +292,7 @@
             "args": [
                 "force:package:version:promote",
                 "-p",
-                "${input:packageIdentifier}"
+                "${input:packageVersionIdentifier}"
             ],
             "group": "build",
             "presentation": {
@@ -352,6 +352,12 @@
             "id": "packageName",
             "type": "promptString",
             "description": "The package name to retrieve from salesforce",
+            "default": ""
+        },
+        {
+            "id": "packageVersionIdentifier",
+            "type": "promptString",
+            "description": "The package version name or id you would like to work with",
             "default": ""
         },
         {
