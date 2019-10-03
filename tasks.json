@@ -271,6 +271,21 @@
             },
             "problemMatcher": []
         },
+        {
+            "label": "SFDX: Clean Org List",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:org:list",
+                "--clean"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
     ],
     "inputs": [
         {
