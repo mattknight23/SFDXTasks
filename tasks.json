@@ -213,6 +213,36 @@
             "problemMatcher": []
         },
         {
+            "label": "SFDX: List Dev Hub Packages Specify Username",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:list",
+                "-u",
+                "${input:username}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: List Dev Hub Packages",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:list"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "SFDX: Create Package",
             "type": "shell",
             "command": "sfdx",
