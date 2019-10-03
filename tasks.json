@@ -218,7 +218,7 @@
             "command": "sfdx",
             "args": [
                 "force:package:list",
-                "-u",
+                "-v",
                 "${input:username}"
             ],
             "group": "build",
@@ -234,6 +234,36 @@
             "command": "sfdx",
             "args": [
                 "force:package:list"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: List Dev Hub Package Versions",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:version:list"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SFDX: List Dev Hub Package Versions Specify Username",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:version:list",
+                "-v",
+                "${input:username}"
             ],
             "group": "build",
             "presentation": {
