@@ -96,7 +96,6 @@
             "type": "shell",
             "command": "zip",
             "args": [
-                "force:source:convert",
                 "-r",
                 "-X",
                 "deployment.zip",
@@ -116,9 +115,11 @@
             "args": [
                 "force:mdapi:deploy",
                 "--zipfile",
-                "force:source:convert.zip",
+                "deployment.zip",
                 "--targetusername",
-                "${input:username}"
+                "${input:username}",
+                "-w",
+                "10"
             ],
             "group": "build",
             "presentation": {
@@ -134,12 +135,14 @@
             "args": [
                 "force:mdapi:deploy",
                 "--zipfile",
-                "force:source:convert.zip",
+                "deployment.zip",
                 "--targetusername",
                 "${input:username}",
                 "-l",
                 "RunSpecifiedTests",
-                "${input:specifiedTests}"
+                "${input:specifiedTests}",
+                "-w",
+                "10"
             ],
             "group": "build",
             "presentation": {
