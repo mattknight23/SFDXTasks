@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p 'Username ' USERNAME
+read -p 'Username: ' USERNAME
 # convert Source to metadata
 sfdx force:source:convert --rootdir force-app --outputdir deployment
 # zip converted source
