@@ -140,6 +140,7 @@
                 "${input:username}",
                 "-l",
                 "RunSpecifiedTests",
+                "-r",
                 "${input:specifiedTests}",
                 "-w",
                 "10"
