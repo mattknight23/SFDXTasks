@@ -15,7 +15,7 @@ sfdx force:org:create -a $ALIAS -s -f config/project-scratch-def.json -d $DURATI
 sfdx force:config:set defaultusername=$ALIAS
 
 #Optionally install packages
-#sfdx force:package:install -p $PACKAGE_VERSION_ID
+#sfdx force:package:install -p $PACKAGE_VERSION_ID -w 10
 
 #Push source to scracth org
 sfdx force:source:push
