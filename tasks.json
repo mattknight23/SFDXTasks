@@ -336,6 +336,24 @@
             "problemMatcher": []
         },
         {
+            "label": "SFDX: Assign Permission Set",
+            "type": "shell",
+            "command": "sfdx",
+            "args": [
+                "force:package:version:promote",
+                "-u",
+                "${input:userName}",
+                "-n",
+                "${input:permsetName}",
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "SFDX: Clean Org List",
             "type": "shell",
             "command": "sfdx",
@@ -403,7 +421,7 @@
         {
             "id": "username",
             "type": "promptString",
-            "description": "The username of the org to deploy to",
+            "description": "The username you want this command to apply to.",
             "default": ""
         },
         {
@@ -416,6 +434,12 @@
             "id": "outputDIr",
             "type": "promptString",
             "description": "The name of the output directory",
+            "default": ""
+        },
+        {
+            "id": "permsetName",
+            "type": "promptString",
+            "description": "The api name of the permission set",
             "default": ""
         },
         {
