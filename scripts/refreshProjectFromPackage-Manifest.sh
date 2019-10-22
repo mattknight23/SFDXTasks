@@ -10,3 +10,5 @@ rm -r retrieval
 rm -r force-app/main/default
 sfdx force:config:set defaultusername=$USERNAME
 sfdx force:source:retrieve -x manifest/package.xml
+
+echo 'Project refreshed from package'

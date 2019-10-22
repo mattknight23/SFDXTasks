@@ -11,3 +11,5 @@ rm -r deployment
 sfdx force:mdapi:deploy --zipfile deployment.zip --targetusername $USERNAME -w 10
 # delete zip file
 rm deployment.zip
+
+echo 'complete'
