@@ -1,7 +1,8 @@
 #!/bin/bash
 
-DURATION=7
-ALIAS="MYSCRATCHORG"
+read -p 'Alias: ' ALIAS
+read -p 'Duration: ' DURATION
+
 PACKAGE_VERSION_ID=""
 
 if [ "$#" -eq 1 ]; then
