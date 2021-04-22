@@ -1,5 +1,11 @@
 #!/bin/bash
 
+read -p 'Do you wnat to deploy to Inte? y/n: ' DeployInte
+read -p 'Do you wnat to deploy to Staging? y/n: ' DeployStaging
+read -p 'Do you wnat to deploy to Prod? y/n: ' DeployProd
+
+sfdx force:org:list
+
 # convert Source to metadata
 sfdx force:source:convert --rootdir force-app --outputdir deployment
 # zip converted source
@@ -7,10 +13,6 @@ zip -r -X deployment.zip deployment
 # delete converted file
 rm -r deployment
 # deploy changes to specified username
-
-read -p 'Do you wnat to deploy to Inte? y/n: ' DeployInte
-read -p 'Do you wnat to deploy to Staging? y/n: ' DeployStaging
-read -p 'Do you wnat to deploy to Prod? y/n: ' DeployProd
 
 if [ $DeployInte = 'y' ]
 then
